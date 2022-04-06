@@ -1,0 +1,44 @@
+.cv-container{
+  width: 60%;
+  margin: auto;
+  background-color: white;
+  padding:10px;
+}
+
+#general input{
+  display:block;
+  margin:0 0 10px 0;
+  font-size:24px;
+  
+}
+
+.submitted{
+  border:none;
+  resize:none;
+}
+
+.submitted:active{
+  border: none;
+  outline: none;
+}
+
+.edit-info{
+  display: none;
+}
+
+
+
+#education-info > *{
+  display:block;
+  margin-bottom:10px;
+  
+}
+
+#experience-info > *{
+  display:block;
+  margin-bottom:10px;
+  
+}
+
+
+
