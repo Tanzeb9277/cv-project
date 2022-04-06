@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/rcv-project/static/css/main.4fb6d44a.css",
+    "main.js": "/rcv-project/static/js/main.b470784b.js",
+    "static/js/787.34a20539.chunk.js": "/rcv-project/static/js/787.34a20539.chunk.js",
+    "index.html": "/rcv-project/index.html",
+    "main.4fb6d44a.css.map": "/rcv-project/static/css/main.4fb6d44a.css.map",
+    "main.b470784b.js.map": "/rcv-project/static/js/main.b470784b.js.map",
+    "787.34a20539.chunk.js.map": "/rcv-project/static/js/787.34a20539.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4fb6d44a.css",
+    "static/js/main.b470784b.js"
+  ]
+}
