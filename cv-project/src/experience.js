@@ -1,57 +1,134 @@
 import React, { Component } from 'react';
 import './App.css';
+import ExperienceInput from './experienceInput';
+import DisplayExperience from './displayExperience';
 
 
 
 class Experience extends Component{
     constructor(props){
-        super(props)
+        super(props);
+
+        this.state = {
+          value: {
+            name: '',
+            title: '',
+            start: '',
+            end: '',
+            desc: ''
+            
+          },
+        }
+        this.handleNameChange = this.handleNameChange.bind(this);
+        this.handleTitleChange = this.handleTitleChange.bind(this);
+        this.handleStartChange = this.handleStartChange.bind(this);
+        this.handleEndChange = this.handleEndChange.bind(this);
+        this.handleDescChange = this.handleDescChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     }
 
-    submitInfo(e){
-        e.preventDefault();
-        let general = document.querySelectorAll('.experience-info');
-        let edit = document.querySelector('#edit-experience-info');
-        for(var i = 0; i < general.length; i++){
-          general[i].setAttribute('readonly', true);
-          general[i].classList.add("submitted");
-          e.target.style="display:none;";
-          edit.style = "display:block;";
-        }
-      }
-      editInfo(e){
-        e.preventDefault();
-        let general = document.querySelectorAll('.experience-info');
-        let add = document.querySelector('#add-experience-info');
-        for(var i = 0; i < general.length; i++){
-          general[i].removeAttribute('readonly');
-          general[i].classList.remove("submitted");
-          e.target.style="display:none;";
-          add.style = "display:block;";
-        }
-      }
+    handleNameChange(e)  {
+      this.setState({
+        value: {
+          name: e.target.value,
+          title: this.state.value.title,
+          start: this.state.value.start,
+          end: this.state.value.end,
+          desc: this.state.value.desc
+        },
+      });
+    };
+    handleTitleChange(e)  {
+      this.setState({
+        value: {
+          name: this.state.value.name,
+          title: e.target.value,
+          start: this.state.value.start,
+          end: this.state.value.end,
+          desc: this.state.value.desc
+        },
+      });
+    };
+    handleStartChange(e)  {
+      this.setState({
+        value: {
+          name: this.state.value.name,
+          title: this.state.value.title,
+          start: e.target.value,
+          end: this.state.value.end,
+          desc: this.state.value.desc
+        },
+      });
+    };
+    handleEndChange(e)  {
+      this.setState({
+        value: {
+          name: this.state.value.name,
+          title: this.state.value.title,
+          start: this.state.value.start,
+          end: e.target.value,
+          desc: this.state.value.desc
+
+        },
+      });
+    };
+    handleDescChange(e)  {
+      this.setState({
+        value: {
+          name: this.state.value.name,
+          title: this.state.value.title,
+          start: this.state.value.start,
+          end: this.state.value.end,
+          desc: e.target.value
+
+        },
+      });
+    };
+
+    handleSubmit (e) {
+      e.preventDefault();
+      console.log(this.state.value)
+      let display = document.querySelector('#experience-display');
+      let input = document.querySelector('#experience-input');
+      display.style = 'display:block';
+      input.style = 'display:none';
+    };
+    handleEdit (e) {
+      e.preventDefault();
+      let display = document.querySelector('#experience-display');
+      let input = document.querySelector('#experience-input');
+      display.style = 'display:none';
+      input.style = 'display:block';
+    };
 
     render(){
         return(
             <div className='experience'>
-                <form action="education-info" id='experience-info'>
-                <input type="text" placeholder='Company Name' className='experience-info'/>
-                <input type="text" placeholder='Title' className='experience-info'/>
-                
-                <div class="dates">
-                <label for="start">Start Date</label>
-                <input type="date" className='experience-info'/>
-                <label for="start">End Date</label>
-                <input type="date" className='experience-info'/>
-                </div>
-                
-                <textarea rows="4" cols="50" placeholder="Description..." className='experience-info'></textarea>
-
-                <button id='add-experience-info' onClick={this.submitInfo}>Submit</button>
-                <button id='edit-experience-info' className='edit-info'  onClick={this.editInfo}>Edit</button>
-                
-                
-            </form>
+              <ExperienceInput
+                nameValue={this.state.value.name}
+                titleValue={this.state.value.title}
+                startValue={this.state.value.start}
+                endValue={this.state.value.end}
+                descValue={this.state.value.desc}
+    
+                nameChange={this.handleNameChange}
+                titleChange={this.handleTitleChange}
+                startChange={this.handleStartChange}
+                endChange={this.handleEndChange}
+                descChange={this.handleDescChange}
+    
+                submitInfo = {this.handleSubmit}
+              
+              />
+              <DisplayExperience
+                name={this.state.value.name}
+                title={this.state.value.title}
+                start={this.state.value.start}
+                end={this.state.value.end}
+                desc={this.state.value.desc}
+                editInfo = {this.handleEdit}
+              />
             </div>
         )
     }

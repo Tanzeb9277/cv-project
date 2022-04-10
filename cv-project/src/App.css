@@ -1,8 +1,12 @@
 .cv-container{
-  width: 60%;
+  width: 50%;
   margin: auto;
   background-color: white;
   padding:10px;
+}
+
+#header{
+  text-align: center;
 }
 
 #general input{
@@ -10,6 +14,33 @@
   margin:0 0 10px 0;
   font-size:24px;
   
+}
+
+#general-display{
+  display: none;
+}
+
+#general-display h2{
+  font-weight: 400;
+  font-size: 22px;
+}
+
+#experience-display{
+  display: none;
+}
+
+#experience-display h2{
+  font-weight: 400;
+  font-size: 22px;
+}
+
+#education-display{
+  display: none;
+}
+
+#education-display h2{
+  font-weight: 400;
+  font-size: 22px;
 }
 
 .submitted{
@@ -22,9 +53,6 @@
   outline: none;
 }
 
-.edit-info{
-  display: none;
-}
 
 
 
@@ -39,6 +67,7 @@
   margin-bottom:10px;
   
 }
+
 
 
 

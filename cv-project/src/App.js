@@ -22,6 +22,7 @@ class App extends Component{
   render(){
     return(
       <div className='cv-container'>
+        <h1 id='header'>CV Builder</h1>
         <General/>
         <hr/>
         <h1>Education</h1>
